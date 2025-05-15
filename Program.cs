@@ -12,7 +12,7 @@ namespace ATBASH_Cipher
         {
 
 
-            string MessageDangerLevel(string message)
+            (string,int) MessageDangerLevel(string message)
             {
                 List<string> dangerous_words = new List<string> { "bomb", "nukhba", "fighter", "rocket", "secret" };
 
@@ -36,12 +36,13 @@ namespace ATBASH_Cipher
                 }
 
 
-                return $"words_found: {string.Join(",", words_found)}\npoints: {points}";
+                return (message,points);
             }
 
 
+            var message_and_points = MessageDangerLevel(decryptedMessage);
 
-            Console.WriteLine(MessageDangerLevel("In a secret secret operation, the elite Nukhba fighter unit intercepted a rocket armed with a bomb, thwarting a catastrophic attack."));
+
 
         }
     }
